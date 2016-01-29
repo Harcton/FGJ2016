@@ -14,7 +14,7 @@ public class PositionScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        Vector3 relativePosition = new Vector3(0.0f, 10.0f, -10.0f);
+        Vector3 relativePosition = new Vector3(0.0f, 20.0f, -20.0f);
         transform.position = player.transform.position + relativePosition;
 	}
 }
