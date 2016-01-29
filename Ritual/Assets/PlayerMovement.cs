@@ -42,7 +42,11 @@ public class PlayerMovement : MonoBehaviour
             playerObject.GetComponent<Transform>().position += Vector3.left * Time.deltaTime * movementSpeed;
             playerAnimator.SetInteger("State", 1);
         }
-        if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.Space))
+        {
+            playerAnimator.SetInteger("State", 2);
+        }
+        else if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.W))
         {
             playerAnimator.SetInteger("State", 0);
         }
