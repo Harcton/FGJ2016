@@ -12,6 +12,11 @@ public class MovementScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+
+	}
+
+    void handleInput()
+    {
         float movementSpeed = 10.0f;
         if (Input.GetKey(KeyCode.W))
         {
@@ -29,5 +34,5 @@ public class MovementScript : MonoBehaviour
         {
             transform.Translate(Vector3.left * Time.deltaTime * movementSpeed);
         }
-	}
+    }
 }
