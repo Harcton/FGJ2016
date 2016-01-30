@@ -26,6 +26,7 @@ GameObject:
   - 212: {fileID: 21286232}
   - 65: {fileID: 6528846}
   - 54: {fileID: 5426886}
+  - 114: {fileID: 11406760}
   m_Layer: 0
   m_Name: TreeCollider
   m_TagString: Untagged
@@ -40,7 +41,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.00115943, y: -.200000003, z: .75003767}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 8, z: 1}
   m_Children:
   - {fileID: 492702}
@@ -53,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .521000028, z: 0}
+  m_LocalPosition: {x: 0, y: .649999976, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 423676}
@@ -85,6 +86,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .24964866, y: 1.27999997, z: .510416746}
   m_Center: {x: -.0100673046, y: 0, z: .0299999993}
+--- !u!114 &11406760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de5a1ef2b2962ca438c282e9da8fd593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21286232
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class TerrainGeneration : MonoBehaviour
 {
-    public GameObject treePrefab;
+    public GameObject[] terrainPrefabs;
     public int terrainQuantity;//How many terrain pieces are being updated
     public float spawnMinRadius;
     public float spawnMaxRadius;
@@ -20,7 +20,7 @@ public class TerrainGeneration : MonoBehaviour
         {
             float angle = (float)Random.Range(0, 359) * (3.14f / 180.0f);
             float rad = (float)Random.Range(1, (int)spawnMaxRadius);
-            terrain[i] = Instantiate(treePrefab, new Vector3(Mathf.Cos(angle) * rad, 0, Mathf.Sin(angle) * rad), Quaternion.identity) as GameObject;
+            terrain[i] = Instantiate(terrainPrefabs[Random.Range(0,terrainPrefabs.Length)], new Vector3(Mathf.Cos(angle) * rad, 0, Mathf.Sin(angle) * rad), Quaternion.identity) as GameObject;
             terrain[i].transform.parent = gameObject.transform;
         }
 	}
@@ -48,8 +48,9 @@ public class TerrainGeneration : MonoBehaviour
                 //Spawn new terrain in the free array slot
                 float angle = (float)Random.Range(0, 359) * (3.14f / 180.0f);
                 float rad = (float)Random.Range((int)spawnMinRadius, (int)spawnMaxRadius);
-                terrain[i] = Instantiate(treePrefab, new Vector3(player.transform.position.x + Mathf.Cos(angle) * rad, 0, player.transform.position.z + Mathf.Sin(angle) * rad), Quaternion.identity) as GameObject;
+                terrain[i] = Instantiate(terrainPrefabs[Random.Range(0, terrainPrefabs.Length)], new Vector3(player.transform.position.x + Mathf.Cos(angle) * rad, 0, player.transform.position.z + Mathf.Sin(angle) * rad), Quaternion.identity) as GameObject;
                 terrain[i].transform.parent = gameObject.transform;
+                terrain[i].GetComponent<SpriteRenderer>().sortingLayerID = (int)terrain[i].transform.position.z * 10;
             }
         }
 
