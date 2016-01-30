@@ -3,7 +3,6 @@ using System.Collections;
 
 public class MaterialScript : MonoBehaviour
 {
-
     public float xScale, yScale;
 	// Use this for initialization
 	void Start ()
