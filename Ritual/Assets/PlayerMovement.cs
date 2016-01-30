@@ -8,13 +8,27 @@ public class PlayerMovement : MonoBehaviour
     public GameObject playerObject;
     public GameObject stonePrefab;
 
+    public bool facingRight = false;
+
     private float movementSpeed;
     private Animator playerAnimator;
     private bool canMove = true;
-    public bool facingRight = false;
     private float idleTime = 0.0f;
     private float throwTimer = 0.0f;
-    private bool moved;
+
+    private bool moved; //Has player moved this frame
+    private ActionState actionState;
+
+    enum ActionState
+    {
+        NoAction = 0,
+        Fire = 1,
+        Water = 2,
+        Earth = 3,
+        Air = 4,
+        Throw = 5,
+        Gangsta = 6,
+    }
 
     enum AnimationState
     {
@@ -40,10 +54,12 @@ public class PlayerMovement : MonoBehaviour
         throwTimer += Time.deltaTime;
         idleTime += Time.deltaTime;
         moved = false;
-        if (playerAnimator.GetInteger("State") == (int)AnimationState.Throw || 
-            playerAnimator.GetInteger("State") == (int)AnimationState.Fire || 
-            playerAnimator.GetInteger("State") == (int)AnimationState.Water ||
-            playerAnimator.GetInteger("State") == (int)AnimationState.Gangsta ||
+
+        //Check if player can move:
+        if (actionState == ActionState.Throw || 
+            actionState == ActionState.Fire || 
+            actionState == ActionState.Water ||
+            actionState == ActionState.Gangsta ||
             throwTimer < 0.3f)
         {
             canMove = false;
@@ -52,8 +68,11 @@ public class PlayerMovement : MonoBehaviour
         {
             canMove = true;
         }
+
         handlePlayerInput();
-        if (playerAnimator.GetInteger("State") != (int)AnimationState.Buddha)
+        handleStates();
+
+        if (actionState != ActionState.Air) //When not flyin'
             movementSpeed = 14.0f;
         else
             movementSpeed = 26.0f;
@@ -105,7 +124,35 @@ public class PlayerMovement : MonoBehaviour
         }
         
         //Actions
-        if (Input.GetKey(KeyCode.LeftControl) && throwTimer > 1.3f && canMove)
+        if (Input.GetKey(KeyCode.RightControl) && throwTimer > 1.3f && canMove)
+        {
+            actionState = ActionState.Throw;
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            actionState = ActionState.Fire;
+        }
+        else if (Input.GetKey(KeyCode.UpArrow))
+        {
+            actionState = ActionState.Air;
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            actionState = ActionState.Water;
+        }
+        else if (Input.GetKey(KeyCode.Space))
+        {
+            actionState = ActionState.Gangsta;
+        }
+        else if (throwTimer > 0.25f)
+        {
+            actionState = ActionState.NoAction;
+        }
+    }
+
+    void handleStates()
+    {
+        if (actionState == ActionState.Throw && throwTimer > 1.3f && canMove)
         {
             idleTime = 0.0f;
             throwTimer = 0.0f;
@@ -120,28 +167,28 @@ public class PlayerMovement : MonoBehaviour
                 stone.GetComponent<StoneScript>().speed = new Vector3(-1.0f, 0.5f, 0.0f);
             }
         }
-        else if (Input.GetKey(KeyCode.Tab))
+        else if (actionState == ActionState.Fire)
         {
             idleTime = 0.0f;
             playerAnimator.SetInteger("State", (int)AnimationState.Fire);
         }
-        else if (Input.GetKey(KeyCode.LeftShift))
+        else if (actionState == ActionState.Air)
         {
             idleTime = 0.0f;
             playerAnimator.SetInteger("State", (int)AnimationState.Buddha);
         }
-        else if (Input.GetKey(KeyCode.Backspace))
+        else if (actionState == ActionState.Water)
         {
             idleTime = 0.0f;
             playerAnimator.SetInteger("State", (int)AnimationState.Water);
         }
-        else if (Input.GetKey(KeyCode.Space))
+        else if (actionState == ActionState.Gangsta)
         {
             idleTime = 0.0f;
             playerAnimator.SetInteger("State", (int)AnimationState.Gangsta);
         }
         //Idle
-        else if (throwTimer > 0.25f && !moved)
+        else if (actionState == ActionState.NoAction && !moved)
         {
             if (idleTime > 3.0f)
             {
