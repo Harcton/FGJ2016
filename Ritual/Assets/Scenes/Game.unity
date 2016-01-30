@@ -343,6 +343,14 @@ Prefab:
       propertyPath: m_Constraints
       value: 116
       objectReference: {fileID: 0}
+    - target: {fileID: 465360, guid: c133df0b934170a499b6134afb24b13d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: .0871557519
+      objectReference: {fileID: 0}
+    - target: {fileID: 465360, guid: c133df0b934170a499b6134afb24b13d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .99619472
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c133df0b934170a499b6134afb24b13d, type: 2}
   m_IsPrefabParent: 0
@@ -484,7 +492,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: .221237034, g: .323925883, b: .485294104, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -493,7 +501,7 @@ Camera:
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
-  field of view: 60
+  field of view: 47
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -565,7 +573,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 401840, guid: 399b9ae37fc475c4aa579921c7430bea, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: .0436193943
       objectReference: {fileID: 0}
     - target: {fileID: 401840, guid: 399b9ae37fc475c4aa579921c7430bea, type: 2}
       propertyPath: m_LocalRotation.y
@@ -577,7 +585,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 401840, guid: 399b9ae37fc475c4aa579921c7430bea, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: .999048233
       objectReference: {fileID: 0}
     - target: {fileID: 401840, guid: 399b9ae37fc475c4aa579921c7430bea, type: 2}
       propertyPath: m_RootOrder

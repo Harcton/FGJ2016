@@ -7,8 +7,8 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject playerObject;
     public GameObject stonePrefab;
-    public float movementSpeed = 200.0f;
 
+    private float movementSpeed;
     private Animator playerAnimator;
     private bool canMove = true;
     public bool facingRight = false;
@@ -53,6 +53,10 @@ public class PlayerMovement : MonoBehaviour
             canMove = true;
         }
         handlePlayerInput();
+        if (playerAnimator.GetInteger("State") != (int)AnimationState.Buddha)
+            movementSpeed = 14.0f;
+        else
+            movementSpeed = 26.0f;
 	}
 
     void handlePlayerInput()
@@ -101,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
         //Actions
-        if (Input.GetKey(KeyCode.LeftControl) && throwTimer > 1.3f)
+        if (Input.GetKey(KeyCode.LeftControl) && throwTimer > 1.3f && canMove)
         {
             idleTime = 0.0f;
             throwTimer = 0.0f;
