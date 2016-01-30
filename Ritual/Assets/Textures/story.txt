@@ -1,0 +1,18 @@
+[scene1 fadein]
+[Kamera siirtyy hitaasti sceme1:n läpi alhaalta ylös, oheinen selostus]
+There exists a village in a distant valley where an old man lives.
+[Kamera pysähtyy yläasentoon, scene1 fadeout]
+
+[scene2 fadein]
+[Kamera liikkuu minimaalisella nopeudella vasemmalta oikealle]
+No one knows his real name
+Even gramps himself couldn't rememeber it.
+
+He was a former war veteran but thesedays
+gramps spent most of his time meditating and reading.[Ajatuskuplamainen diashow meditoinnista ja käsityölehtien lukemisesta]
+[scene2 fade out]
+
+Until one day...
+[Tölkin avaus ääni + visuaali]
+
+[Peli alkaa, no explanation whatsoever]
