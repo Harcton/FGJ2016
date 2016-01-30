@@ -8,6 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public GameObject playerObject;
     public GameObject stonePrefab;
 
+    public int waterAllies;
+    public int fireAllies;
+    public int earthAllies;
+    public int airAllies;
+
     public bool facingRight = false;
 
     private float movementSpeed;
@@ -27,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         Earth = 3,
         Air = 4,
         Throw = 5,
+
         Gangsta = 6,
     }
 
@@ -204,6 +210,82 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 playerAnimator.SetInteger("State", (int)AnimationState.Standing);
+            }
+        }
+    }
+
+    void OnTriggerStay(Collider col)
+    {
+        if (col.gameObject.tag == "Minion")
+        {
+            MinionPathfinding MS = col.gameObject.GetComponent<MinionPathfinding>();
+            if (MS.charType == CharacterType.Minion)
+            {
+                switch (actionState)
+                {
+                    case ActionState.Fire:
+                        {
+                            print("fire");
+                            if ((int)MS.element == (int)actionState)
+                            {
+                                print("fire2");
+                                MS.conversion -= (2 * fireAllies + 4) * Time.deltaTime;
+                            }
+                            else if ((int)MS.element == (int)ActionState.Earth || (int)MS.element == (int)ActionState.Air)
+                            {
+                                print("fire3");
+                                MS.conversion -= (1 * fireAllies + 4) * Time.deltaTime;
+                            }
+                            break;
+                        }
+                    case ActionState.Water:
+                        {
+                            print("water");
+                            if ((int)MS.element == (int)actionState)
+                            {
+                                print("water2");
+                                MS.conversion -= (2 * waterAllies + 4) * Time.deltaTime;
+                            }
+                            else if ((int)MS.element == (int)ActionState.Earth || (int)MS.element == (int)ActionState.Air)
+                            {
+                                print("water3");
+                                MS.conversion -= (1 * waterAllies + 4) * Time.deltaTime;
+                            }
+                            break;
+                        }
+                    case ActionState.Earth:
+                        {
+                            print("earth");
+                            if ((int)MS.element == (int)actionState)
+                            {
+                                print("earth2");
+                                MS.conversion -= (2 * earthAllies + 4) * Time.deltaTime;
+                            }
+                            else if ((int)MS.element == (int)ActionState.Fire || (int)MS.element == (int)ActionState.Water)
+                            {
+                                print("earth3");
+                                MS.conversion -= (1 * earthAllies + 4) * Time.deltaTime;
+                            }
+                            break;
+                        }
+                    case ActionState.Air:
+                        {
+                            print("air");
+                            if ((int)MS.element == (int)actionState)
+                            {
+                                print("air2");
+                                MS.conversion -= (2 * airAllies + 4) * Time.deltaTime;
+                            }
+                            else if ((int)MS.element == (int)ActionState.Fire || (int)MS.element == (int)ActionState.Water)
+                            {
+                                print("air3");
+                                MS.conversion -= (1 * airAllies + 4) * Time.deltaTime;
+                            }
+                            break;
+                        }
+                    default:
+                        break;
+                }
             }
         }
     }

@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MinionPathfinding : MonoBehaviour {
-
-    public enum CharacterType
-    {
-        Hermit,
-        Minion,
-    }
-
+public enum CharacterType
+{
+    Hermit,
+    Minion,
+}
+public class MinionPathfinding : MonoBehaviour
+{
     public CharacterType charType;
+    public float conversion = 100;
+    public Element element;
+
+    public enum Element
+    {
+        Fire = 1,
+        Water = 2,
+        Earth = 3,
+        Air = 4,
+    }
    
     //timer randomizer
     float rng;
@@ -60,13 +69,17 @@ public class MinionPathfinding : MonoBehaviour {
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        master = player;
-        
+        element = Element.Fire;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (conversion <= 0)
+        {
+            master = player;
+            UninitIndependence();
+        }
         //minion movement
         if(master)
         {
@@ -146,6 +159,11 @@ public class MinionPathfinding : MonoBehaviour {
             }           
             transform.position = Vector3.Lerp(transform.position, targetPos, movementSpeed * Time.deltaTime);
         }
+        else
+        {
+            InitIndependence();
+            IndependentMovement();
+        }
         //End of Minion movement
 
 
@@ -154,7 +172,7 @@ public class MinionPathfinding : MonoBehaviour {
             * HEMIT ACTIONS
             */
 
-        else if(charType == CharacterType.Hermit)
+        if(charType == CharacterType.Hermit)
         {           
             InitIndependence();
             IndependentMovement();
@@ -242,7 +260,7 @@ public class MinionPathfinding : MonoBehaviour {
             //find new target
             lastRandomPoint = randomPoint;
             randomPoint = Random.insideUnitCircle;
-            randomPoint *= CircleRadius * 15;
+            randomPoint *= CircleRadius * 5;
 
             //pelaajan ja edellisen pisteen välinen suunta   
             angle = Mathf.Atan2(lastRandomPoint.x - player.transform.position.x, lastRandomPoint.z - player.transform.position.z);
@@ -319,14 +337,24 @@ public class MinionPathfinding : MonoBehaviour {
         if(!independenceInitialized)
         {
             gameObject.GetComponent<SphereCollider>().enabled = true;
-
-
-            movementSpeed = 0.35f / 4;
+            
+            movementSpeed /= 4;
             MaxDistanceToPlayer *= 6;
             CircleRadius *= 6;
             independenceInitialized = true;
+        }        
+    }
+    void UninitIndependence()
+    {
+        if (independenceInitialized)
+        {
+            gameObject.GetComponent<SphereCollider>().enabled = true;
+            
+            movementSpeed *= 4;
+            MaxDistanceToPlayer /= 6;
+            CircleRadius /= 6;
+            independenceInitialized = false;
         }
-        
     }
 
     //combat

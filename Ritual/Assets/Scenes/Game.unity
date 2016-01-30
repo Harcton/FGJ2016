@@ -233,7 +233,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11422144, guid: dffaeceed19bd97499bd902337c23cca, type: 2}
       propertyPath: spawnInterval
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11422144, guid: dffaeceed19bd97499bd902337c23cca, type: 2}
       propertyPath: minionPreFab
@@ -366,23 +366,12 @@ Prefab:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 13667920, guid: 8688d2822cdb5504faf655f0c658757c, type: 2}
-      propertyPath: m_Center.z
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 13667920, guid: 8688d2822cdb5504faf655f0c658757c, type: 2}
-      propertyPath: m_Center.y
-      value: -.349999994
-      objectReference: {fileID: 0}
-    - target: {fileID: 13667920, guid: 8688d2822cdb5504faf655f0c658757c, type: 2}
-      propertyPath: m_Height
-      value: .598295093
-      objectReference: {fileID: 0}
-    - target: {fileID: 21269428, guid: 8688d2822cdb5504faf655f0c658757c, type: 2}
-      propertyPath: m_SortingOrder
+    - target: {fileID: 13584056, guid: 8688d2822cdb5504faf655f0c658757c, type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 13584056, guid: 8688d2822cdb5504faf655f0c658757c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8688d2822cdb5504faf655f0c658757c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1512805795
@@ -616,6 +605,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 2015673996}
   - 114: {fileID: 2015673995}
+  - 135: {fileID: 2015673997}
+  - 114: {fileID: 2015673998}
   m_Layer: 0
   m_Name: Objects
   m_TagString: Untagged
@@ -637,6 +628,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 128196443}
   stonePrefab: {fileID: 128232, guid: 7685122e08a2eae4387c03f5e1fadd43, type: 2}
+  waterAllies: 0
+  fireAllies: 0
+  earthAllies: 0
+  airAllies: 0
   facingRight: 0
 --- !u!4 &2015673996
 Transform:
@@ -651,3 +646,27 @@ Transform:
   - {fileID: 128196444}
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!135 &2015673997
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2015673994}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2015673998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2015673994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62fa8768c080f1f43a60e3c14b7c427e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 128196443}
