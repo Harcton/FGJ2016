@@ -34,7 +34,7 @@ public class MinionPathfinding : MonoBehaviour {
     Vector3 direction = new Vector3(0, 0, 0);
     Vector3 heading = new Vector3(0, 0, 0);
     Vector3 heading2 = new Vector3(0, 0, 0);
-    Vector3 targetPos = new Vector3(0, 0.7f, 0);
+    Vector3 targetPos = new Vector3(0, 3.343f, 0);
 
     //random point on a circle
     public Vector3 lastRandomPoint = new Vector3(0, 0, 0);
@@ -414,7 +414,7 @@ public class MinionPathfinding : MonoBehaviour {
             {
                 if(master.tag == "Player")
                 {
-                    masterTarget = master.GetComponent<>
+                    //masterTarget = master.GetComponent<>
                 }
                 
             }

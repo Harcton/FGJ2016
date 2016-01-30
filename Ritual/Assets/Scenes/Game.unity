@@ -183,7 +183,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
 --- !u!1 &128196443 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 196350, guid: 8688d2822cdb5504faf655f0c658757c, type: 2}
@@ -192,17 +192,6 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 492124, guid: 8688d2822cdb5504faf655f0c658757c, type: 2}
   m_PrefabInternal: {fileID: 1476664542}
---- !u!114 &128196450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 128196443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e88e477d0abe15f489a39d64ec7dc957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &464641753
 Prefab:
   m_ObjectHideFlags: 0
@@ -242,6 +231,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 11422144, guid: dffaeceed19bd97499bd902337c23cca, type: 2}
+      propertyPath: spawnInterval
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11422144, guid: dffaeceed19bd97499bd902337c23cca, type: 2}
+      propertyPath: minionPreFab
+      value: 
+      objectReference: {fileID: 151048, guid: 3933f0eee55346f4bbd1f5309fe596d3, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dffaeceed19bd97499bd902337c23cca, type: 2}
   m_IsPrefabParent: 0
@@ -446,6 +443,10 @@ Prefab:
     - target: {fileID: 11410562, guid: b0866b843da53714fba2e96a97d7b65f, type: 2}
       propertyPath: terrainQuantity
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 105770, guid: b0866b843da53714fba2e96a97d7b65f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0866b843da53714fba2e96a97d7b65f, type: 2}

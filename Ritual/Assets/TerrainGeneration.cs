@@ -50,7 +50,6 @@ public class TerrainGeneration : MonoBehaviour
                 float rad = (float)Random.Range((int)spawnMinRadius, (int)spawnMaxRadius);
                 terrain[i] = Instantiate(terrainPrefabs[Random.Range(0, terrainPrefabs.Length)], new Vector3(player.transform.position.x + Mathf.Cos(angle) * rad, 0, player.transform.position.z + Mathf.Sin(angle) * rad), Quaternion.identity) as GameObject;
                 terrain[i].transform.parent = gameObject.transform;
-                terrain[i].GetComponent<SpriteRenderer>().sortingLayerID = (int)terrain[i].transform.position.z * 10;
             }
         }
 
