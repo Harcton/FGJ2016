@@ -69,14 +69,17 @@ public class PlayerMovement : MonoBehaviour
             canMove = true;
         }
 
+        if (actionState != ActionState.Air) //When not flyin'
+            movementSpeed = 12.0f;
+        else
+            movementSpeed = 25.0f;
+	}
+
+    void FixedUpdate()
+    {
         handlePlayerInput();
         handleStates();
-
-        if (actionState != ActionState.Air) //When not flyin'
-            movementSpeed = 14.0f;
-        else
-            movementSpeed = 26.0f;
-	}
+    }
 
     void handlePlayerInput()
     {
