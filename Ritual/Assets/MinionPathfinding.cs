@@ -188,6 +188,11 @@ public class MinionPathfinding : MonoBehaviour
         }
   }
 
+    void LateUpdate()
+    {
+        transform.position = new Vector3(transform.position.x, 3.343f, transform.position.z);
+    }
+
         //independent movement
 
 

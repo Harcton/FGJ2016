@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     private bool moved; //Has player moved this frame
     private ActionState actionState;
 
+    private Collider[] minions;
+    private float collisionTimer;
+
     enum ActionState
     {
         NoAction = 0,
@@ -52,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
 	void Start ()
     {
         playerAnimator = playerObject.GetComponent<Animator>();
+        collisionTimer = 1.0f;
 	}
 	
 	// Update is called once per frame
@@ -74,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
         {
             canMove = true;
         }
+
+        Conversions();
 
         if (actionState != ActionState.Air) //When not flyin'
             movementSpeed = 12.0f;
@@ -214,71 +220,67 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider col)
+    void Conversions()
     {
-        if (col.gameObject.tag == "Minion")
+        collisionTimer += Time.deltaTime;
+        if (collisionTimer > 1.0f)
         {
-            MinionPathfinding MS = col.gameObject.GetComponent<MinionPathfinding>();
+            minions = getMinions();
+            collisionTimer = 0.0f;
+        }
+
+        MinionPathfinding MS;
+        for (int i = 0; i < minions.Length; i++)
+        {
+            MS = minions[i].gameObject.GetComponent<MinionPathfinding>();
             if (MS.charType == CharacterType.Minion)
             {
                 switch (actionState)
                 {
                     case ActionState.Fire:
                         {
-                            print("fire");
                             if ((int)MS.element == (int)actionState)
                             {
-                                print("fire2");
                                 MS.conversion -= (2 * fireAllies + 4) * Time.deltaTime;
                             }
                             else if ((int)MS.element == (int)ActionState.Earth || (int)MS.element == (int)ActionState.Air)
                             {
-                                print("fire3");
                                 MS.conversion -= (1 * fireAllies + 4) * Time.deltaTime;
                             }
                             break;
                         }
                     case ActionState.Water:
                         {
-                            print("water");
                             if ((int)MS.element == (int)actionState)
                             {
-                                print("water2");
                                 MS.conversion -= (2 * waterAllies + 4) * Time.deltaTime;
                             }
                             else if ((int)MS.element == (int)ActionState.Earth || (int)MS.element == (int)ActionState.Air)
                             {
-                                print("water3");
                                 MS.conversion -= (1 * waterAllies + 4) * Time.deltaTime;
                             }
                             break;
                         }
                     case ActionState.Earth:
                         {
-                            print("earth");
                             if ((int)MS.element == (int)actionState)
                             {
-                                print("earth2");
                                 MS.conversion -= (2 * earthAllies + 4) * Time.deltaTime;
                             }
                             else if ((int)MS.element == (int)ActionState.Fire || (int)MS.element == (int)ActionState.Water)
                             {
-                                print("earth3");
                                 MS.conversion -= (1 * earthAllies + 4) * Time.deltaTime;
                             }
                             break;
                         }
                     case ActionState.Air:
                         {
-                            print("air");
                             if ((int)MS.element == (int)actionState)
                             {
-                                print("air2");
                                 MS.conversion -= (2 * airAllies + 4) * Time.deltaTime;
                             }
                             else if ((int)MS.element == (int)ActionState.Fire || (int)MS.element == (int)ActionState.Water)
                             {
-                                print("air3");
                                 MS.conversion -= (1 * airAllies + 4) * Time.deltaTime;
                             }
                             break;
@@ -288,6 +290,11 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    Collider[] getMinions()
+    {
+        return Physics.OverlapSphere(transform.position, 8.0f, 1 << 8);
     }
 
     void FlipPlayer()
