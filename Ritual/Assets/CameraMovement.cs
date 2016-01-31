@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CameraMovement : MonoBehaviour
 {
+    public GameObject scene2;
+
     private float scrollSpeed;
     private bool slow = false;
     private bool image = false;
@@ -37,7 +39,7 @@ public class CameraMovement : MonoBehaviour
         }
 
 
-        if (switchTimer > 2.0f)
+        if (switchTimer > 5.0f)
         {
             if (!image)
             {
@@ -56,7 +58,7 @@ public class CameraMovement : MonoBehaviour
         {
             scrollSpeed = 0.0f;
             exitTimer += Time.deltaTime;
-            if (exitTimer > 2.0f)
+            if (exitTimer > 10.0f)
             {
                 Application.LoadLevel("Game");
             }
