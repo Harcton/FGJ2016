@@ -185,8 +185,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
---- !u!1 &128196443
+  m_RootOrder: 8
+--- !u!1 &128196443 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 196350, guid: 8688d2822cdb5504faf655f0c658757c, type: 2}
   m_PrefabInternal: {fileID: 1476664542}
@@ -231,7 +231,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11422144, guid: dffaeceed19bd97499bd902337c23cca, type: 2}
       propertyPath: spawnInterval
-      value: .100000001
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11422144, guid: dffaeceed19bd97499bd902337c23cca, type: 2}
       propertyPath: minionPreFab
@@ -277,6 +277,30 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 463184, guid: 084c778df6da8ba429174f41d6d8c2c7, type: 2}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227366, guid: 084c778df6da8ba429174f41d6d8c2c7, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8224528, guid: 084c778df6da8ba429174f41d6d8c2c7, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266842, guid: 084c778df6da8ba429174f41d6d8c2c7, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233908, guid: 084c778df6da8ba429174f41d6d8c2c7, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209480, guid: 084c778df6da8ba429174f41d6d8c2c7, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264708, guid: 084c778df6da8ba429174f41d6d8c2c7, type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -557,6 +581,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &1903320502
 Transform:
   m_ObjectHideFlags: 0

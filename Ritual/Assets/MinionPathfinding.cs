@@ -70,6 +70,7 @@ public class MinionPathfinding : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         element = Element.Fire;
+        master = player;
     }
 
     // Update is called once per frame
