@@ -19,7 +19,7 @@ public class TerrainGeneration : MonoBehaviour
         for (int i = 0; i < terrainQuantity; i++)
         {
             float angle = (float)Random.Range(0, 359) * (3.14f / 180.0f);
-            float rad = (float)Random.Range(1, (int)spawnMaxRadius);
+            float rad = (float)Random.Range((int)spawnMaxRadius/5, (int)spawnMaxRadius);
             terrain[i] = Instantiate(terrainPrefabs[Random.Range(0,terrainPrefabs.Length)], new Vector3(Mathf.Cos(angle) * rad, 0, Mathf.Sin(angle) * rad), Quaternion.identity) as GameObject;
             terrain[i].transform.parent = gameObject.transform;
         }

@@ -5,6 +5,7 @@ public class StoneScript : MonoBehaviour
 {
     public float rotationSpeed = 500.0f;
     public Vector3 speed;
+    GameObject text;
 
     private float acceleration = 0.0f;
     private bool active;
@@ -12,6 +13,7 @@ public class StoneScript : MonoBehaviour
 
     void Start()
     {
+        text = GameObject.FindWithTag("Text");
         active = true;
         destroyTimer = 0.0f;
     }
@@ -22,6 +24,16 @@ public class StoneScript : MonoBehaviour
         {
             speed = new Vector3(-speed.x, speed.y);
             Destroy(gameObject.GetComponent<Collider>());
+        }
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.name == "DeathTrigger")
+        {
+            Destroy(col.gameObject.transform.parent.gameObject);
+            GetComponent<AudioSource>().Play();
+            text.GetComponent<CounterFlip>().score += 1;
         }
     }
 

@@ -13,10 +13,27 @@ GameObject:
   - 114: {fileID: 11419212}
   - 135: {fileID: 13507416}
   - 114: {fileID: 11483118}
-  - 65: {fileID: 6523656}
   m_Layer: 8
   m_Name: Minion
   m_TagString: Minion
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &161710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 479610}
+  - 65: {fileID: 6536202}
+  - 114: {fileID: 11446760}
+  - 54: {fileID: 5434142}
+  m_Layer: 8
+  m_Name: DeathTrigger
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,23 +45,51 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151048}
   m_LocalRotation: {x: .0871557519, y: 0, z: 0, w: .99619472}
-  m_LocalPosition: {x: 0, y: 3.34299994, z: 0}
+  m_LocalPosition: {x: -1.00802851, y: 9.59486008, z: -22.6275749}
   m_LocalScale: {x: 5, y: 5, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 479610}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!65 &6523656
+--- !u!4 &479610
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161710}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 430714}
+  m_RootOrder: 0
+--- !u!54 &5434142
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161710}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &6536202
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 151048}
+  m_GameObject: {fileID: 161710}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .639999986, y: .640000045, z: .200000033}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: .366372973, y: .613390207, z: 1.03627825}
+  m_Center: {x: .0124974493, y: -.0132832723, z: .00266045984}
 --- !u!95 &9540648
 Animator:
   serializedVersion: 3
@@ -85,6 +130,17 @@ MonoBehaviour:
   timerValue: 2
   lastRandomPoint: {x: 0, y: 0, z: 0}
   randomPoint: {x: 0, y: 0, z: 0}
+--- !u!114 &11446760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675a0392d9de9a043a7be1e51f2f0a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11483118
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,0 +1,51 @@
+Initialize engine version: 5.2.2f1 (3757309da7e7)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA Quadro K2200 (ID=0x13ba)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\teohil\Documents\GitHub\FGJ2016\Ritual\Build\build_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\teohil\Documents\GitHub\FGJ2016\Ritual\Build\build_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\teohil\Documents\GitHub\FGJ2016\Ritual\Build\build_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\teohil\Documents\GitHub\FGJ2016\Ritual\Build\build_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\teohil\Documents\GitHub\FGJ2016\Ritual\Build\build_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\teohil\Documents\GitHub\FGJ2016\Ritual\Build\build_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\teohil\Documents\GitHub\FGJ2016\Ritual\Build\build_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\teohil\Documents\GitHub\FGJ2016\Ritual\Build\build_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\teohil\Documents\GitHub\FGJ2016\Ritual\Build\build_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.082 seconds
+desktop: 1920x1080 60Hz; virtual: 3520x1080 at -1600,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\teohil\Documents\GitHub\FGJ2016\Ritual\Build\build_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 1360 -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.430335 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 363.
+Total: 0.283713 ms (FindLiveObjects: 0.026025 ms CreateObjectMapping: 0.034822 ms MarkObjects: 0.204171 ms  DeleteObjects: 0.018327 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at StoneScript.OnTriggerEnter (UnityEngine.Collider col) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at StoneScript.OnTriggerEnter (UnityEngine.Collider col) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at StoneScript.OnTriggerEnter (UnityEngine.Collider col) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at StoneScript.OnTriggerEnter (UnityEngine.Collider col) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+

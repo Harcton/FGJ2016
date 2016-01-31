@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
             canMove = true;
         }
 
-        Conversions();
+        //Conversions();
 
         if (actionState != ActionState.Air) //When not flyin'
             movementSpeed = 12.0f;
@@ -139,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
         }
         
         //Actions
-        if (Input.GetKey(KeyCode.RightControl) && throwTimer > 1.3f && canMove)
+        if (Input.GetKey(KeyCode.RightControl) && throwTimer > 0.3f && canMove)
         {
             actionState = ActionState.Throw;
         }
@@ -167,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
 
     void handleStates()
     {
-        if (actionState == ActionState.Throw && throwTimer > 1.3f && canMove)
+        if (actionState == ActionState.Throw && throwTimer > 0.3f && canMove)
         {
             idleTime = 0.0f;
             throwTimer = 0.0f;

@@ -22,6 +22,9 @@ public class CameraMovement : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (Input.GetKeyDown(KeyCode.Return))
+            Application.LoadLevel("Game");
+
         if (!image)
         {
             if (scrollSpeed < 0.2f && !slow)
